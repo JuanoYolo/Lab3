@@ -22,6 +22,7 @@ public class RegistryTest {
 		Assert.assertTrue(result != RegisterResult.DEAD);
 		
 	}
+	@Test
 	public void validateValidEdge(){
 		
 		Person person = new Person();
@@ -29,7 +30,12 @@ public class RegistryTest {
 		Assert.assertTrue(result != RegisterResult.INVALID_AGE);
 		
 	}
-	
+	@Test
+	public void validateAdult(){
+		Person person = new Person();
+        RegisterResult result = registry.registerVoter(person);
+		Assert.assertTrue(result != RegisterResult.UNDERAGE);
+	}
 
     // TODO Complete with more test cases
 }

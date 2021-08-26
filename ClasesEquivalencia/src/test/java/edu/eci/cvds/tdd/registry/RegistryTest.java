@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class RegistryTest {
 
-    private Registry registry = new Registry();
+    private final Registry registry = new Registry();
 
     @Test
     public void validateRegistryResult() {
@@ -14,28 +14,24 @@ public class RegistryTest {
         RegisterResult result = registry.registerVoter(person);
         Assert.assertEquals(RegisterResult.VALID, result);
     }
-	@Test
-	public void validateAliveVoter(){
-		
-		Person person = new Person();
+    @Test
+    public void validateAliveVoter(){
+	Person person = new Person();
         RegisterResult result = registry.registerVoter(person);
-		Assert.assertTrue(result != RegisterResult.DEAD);
-		
-	}
-	@Test
-	public void validateValidEdge(){
-		
-		Person person = new Person();
+	Assert.assertTrue(result != RegisterResult.DEAD);
+    }
+    @Test
+    public void validateValidEdge(){		
+        Person person = new Person();
         RegisterResult result = registry.registerVoter(person);
-		Assert.assertTrue(result != RegisterResult.INVALID_AGE);
-		
-	}
-	@Test
-	public void validateAdult(){
-		Person person = new Person();
+	Assert.assertTrue(result != RegisterResult.INVALID_AGE);
+    }
+    @Test
+    public void validateAdult(){
+        Person person = new Person();
         RegisterResult result = registry.registerVoter(person);
-		Assert.assertTrue(result != RegisterResult.UNDERAGE);
-	}
+	Assert.assertTrue(result != RegisterResult.UNDERAGE);
+    }
 
     // TODO Complete with more test cases
 }
